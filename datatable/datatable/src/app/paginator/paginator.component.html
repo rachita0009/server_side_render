@@ -1,0 +1,138 @@
+<!-- <p>paginator works!</p>
+<div class="container">
+
+  
+    <mat-card>
+      <mat-card-header>
+          
+        <mat-card-title>
+          Server Side Pagination in angular
+        </mat-card-title>
+        <mat-form-field>
+          <input matInput type="text" >  
+      </mat-form-field>
+      </mat-card-header>
+    </mat-card>
+  
+    
+          
+          <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell  mat-sort-header *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      
+            </ng-container>
+      
+            <ng-container matColumnDef="name">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="age">
+              <th mat-header-cell  mat-sort-header *matHeaderCellDef> Age </th>
+              <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+            </ng-container>
+      
+      
+            <tr mat-header-row  mat-sort-header *matHeaderRowDef="['id', 'name', 'age']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'age'];"></tr>
+          </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"  (page)="pageChanged($event)"></mat-paginator>
+  </div>
+  
+
+  
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+
+            <mat-card-title>
+                Server Side Pagination in angular
+            </mat-card-title>
+            
+        </mat-card-header>
+    </mat-card>
+
+    <div class="header">
+        <!-- <mat-form-field>
+          <input matInput  placeholder="Search" (keyup)="applyFilter($any($event.target).value)" >
+        </mat-form-field> -->
+      <!-- </div>
+
+
+    <table mat-table [dataSource]="dataSource" style="width: 100%;"  matSort >
+    <ng-container matColumnDef="Firstname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Firstname </th>
+          <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+          <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+          <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="['Firstname','email','mobile','gender']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['Firstname','email','mobile','gender'];"></tr>
+      </table>
+
+      
+  
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>  -->
+
+
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Server Side Pagination in angular
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  
+   
+    
+  
+    <!-- <ng-template #table> -->
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef> Age </th>
+          <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="['id', 'name', 'age']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'age'];"></tr>
+      </table>
+      <mat-paginator
+      [pageSizeOptions]="[5, 10, 15, 20, 30]"
+      showFirstLastButtons>
+    </mat-paginator>
+    <!-- </ng-template> -->
+  </div>

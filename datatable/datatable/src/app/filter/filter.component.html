@@ -1,0 +1,54 @@
+<p>filter works!</p>
+
+<div class="container">
+
+    <div class="row mt-5">
+        <div class="col-8">
+            <mat-form-field>
+                <input matInput  placeholder="Search " #input>
+            </mat-form-field>
+
+        </div>
+
+        <!-- <div class="row mt-5">
+            <div class="col-8">
+                <mat-form-field appearance="fill" >
+                    <mat-select placeholder="choose genger" #select [(ngModel)]="gender" (selectionChange)="someMethod($event.value)">
+                        <mat-option value="1">Male</mat-option>
+                        <mat-option value="2">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+        </div> -->
+
+        <mat-table class="element-table mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="Firstname"
+            matSortDirection="asc" matSortDisableClear>
+
+            <ng-container matColumnDef="Firstname">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Firstname</mat-header-cell>
+                <mat-cell class="Firstname-cell" *matCellDef="let element">{{element.Firstname}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+                <mat-cell class="email-cell" *matCellDef="let element">{{element.email}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="mobile">
+                <mat-header-cell *matHeaderCellDef>Mobile</mat-header-cell>
+                <mat-cell class="mobile-cell" *matCellDef="let element">{{element.mobile}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="gender">
+                <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+                <mat-cell class="gender-cell" *matCellDef="let element"> {{element.gender}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </mat-table>
+
+        <mat-paginator [length]="total" [pageSizeOptions]="[ 5, 10,25]"></mat-paginator>
+    </div>

@@ -1,0 +1,177 @@
+<div class="register-box" class="hold-transition register-page">
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="../../index2.html" class="h1"><b>Register Page</b></a>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Register a new User</p>
+
+            
+             
+            
+            <form action="../../index.html" method="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="firstName"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['firstName'].errors }"
+                        placeholder="First name">
+                    <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="text-danger">
+                        <div *ngIf="registerForm.controls['firstName'].errors['required']">First Name is required</div>
+                    </div>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="lastName"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['lastName'].errors }"
+                        placeholder="Last name">
+                    <div *ngIf="submitted && registerForm.controls['lastName'].errors" class="text-danger">
+                        <div *ngIf="registerForm.controls['lastName'].errors['required']">Last Name is required</div>
+                    </div>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email"  class="form-control" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }"
+                        placeholder="Email">
+                        <!-- <div *ngIf="submitted " class="text-danger" >
+                            {{msg}}
+                        </div> -->
+                        
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="servererror">
+                        {{servererror | json}}
+                       </div>
+                <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+                    
+                    
+                    <div *ngIf="registerForm.controls['email'].errors['required']">Email is required</div>
+                    <div *ngIf="registerForm.controls['email'].errors?.['pattern']"  class="text-danger">Please provide a valid email address</div>
+                    <!-- <div *ngIf="!submitted" class="text-danger">Please provide a valid email address</div> -->
+          
+                
+                    <!-- <div *ngIf="registerForm.controls['email'].hasError('emailExistant')" class="text-danger"></div> -->
+                </div>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <input type="phone" class="form-control" formControlName="mobile"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['mobile'].errors }"
+                        placeholder="Mobile number">
+
+                    <div *ngIf="submitted && registerForm.controls['mobile'].errors" class="text-danger">
+                        <div *ngIf="registerForm.controls['mobile'].errors['required']">Mobile number is required</div>
+                    </div>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-phone"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="input-group mb-3">
+                    <input type="file" class="form-control" formControlName="img">
+                        
+                    
+                    
+                </div> -->
+
+
+                <!-- <div class="input-group mb-3">
+                  <div >Select Gender<br>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </div>
+            </div> -->
+
+
+
+                <div class="input-group mb-3">
+
+                    <select class="form-control" formControlName="gender"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['mobile'].errors }">
+                        <div *ngIf=" submitted &&registerForm.controls['mobile'].errors" class="text-danger">
+                            <div *ngIf="registerForm.controls['mobile'].errors['required']">gender is required</div>
+                        </div>
+                        <option value="">select gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Others</option>
+
+                    </select>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fa fa-mars-stroke"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors }"
+                        placeholder="Password">
+                    <div *ngIf="submitted && registerForm.controls['password'].errors" class="text-danger">
+                        <div *ngIf="registerForm.controls['password'].errors['required']">Password is required</div>
+                    </div>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
+
+
+
+
+                <div>
+
+                </div>
+            </form>
+            <p class="mb-0">
+                Already register?
+                <a routerLink="/login" class="text-center">login</a>
+            </p>
+        
+
+<!-- <div class="success" *ngIf="submitted">
+  register successfully
+</div>
+
+<div class="alert" *ngIf="submitted">
+   {{servererror}}
+  </div> -->
+
+        </div>
+        <!-- /.form-box -->
+    </div>
+</div><!-- /.card -->
+
+<!-- /.register-box -->
